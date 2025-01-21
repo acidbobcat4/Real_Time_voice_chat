@@ -1,9 +1,11 @@
 .text {
-    font-size: 22px;
-    line-height: 1.6;
+    font-size: 1.4rem; /* Modern scaling with rem for responsiveness */
+    line-height: 1.8;
     color: #c4c5c5;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtle text shadow for better readability */
+    font-weight: 400;
 }
 
 .cardWrapper {
@@ -11,12 +13,45 @@
     align-items: center;
     justify-content: center;
     margin-top: 6rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1e1e1e, #232323); /* Gradient background for a sleek look */
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Depth effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardWrapper:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
 }
 
 .signinWrapper {
-    margin-top: 20px;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #bbb;
+}
+
+.signinWrapper a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0077ff;
+    transition: color 0.3s ease-in-out;
+}
+
+.signinWrapper a:hover {
+    color: #0056d6;
+    text-decoration: underline; /* Underline on hover for better accessibility */
 }
 
 .hasInvite {
     color: #0077ff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.hasInvite:hover {
+    color: #0056d6;
+    text-decoration: underline; /* Indication of interactivity */
 }

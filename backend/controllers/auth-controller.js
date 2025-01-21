@@ -6,39 +6,33 @@ const UserDto = require('../dtos/user-dto');
 
 class AuthController {
     async sendOtp(req, res) {
-        const { phone } = req.body;
+        console.log('sendOtp called');  // Add a log to confirm the route is reached
+        let { phone } = req.body;
+        phone= '+91'+ phone;
         if (!phone) {
-            res.status(400).json({ message: 'Phone field is required!' });
+            return res.status(400).json({ message: 'Phone field is required!' });
         }
-        let flagUser2 = 0;
-        // User2 
-        if(phone=="1234567890"){
-            flagUser2=1;
-            console.log("hard coded user")
-        }
-
+    
+        // Your OTP generation logic
         let otp = await otpService.generateOtp();
-        if(flagUser2==1) otp = 2580 // User2
         const ttl = 1000 * 60 * 2; // 2 min total time limit
         const expires = Date.now() + ttl;
         const data = `${phone}.${otp}.${expires}`;
-        const hash = hashService.hashOtp(data); // it will give us a hash by hahing our data
-
-        // send OTP
+        const hash = hashService.hashOtp(data); // it will give us a hash by hashing our data
+    
+        // Send OTP
         try {
-            if(flagUser2==0){
-                await otpService.sendBySms(phone, otp);
-            }
+            await otpService.sendBySms(phone, otp);
             return res.json({
-                hash: `${hash}.${expires}`, 
+                hash: `${hash}.${expires}`,
                 phone,
             });
-            
         } catch (err) {
             console.log(err);
-            return res.status(500).json({ message: 'message sending failed' });
+            return res.status(500).json({ message: 'Message sending failed' });
         }
     }
+    
 
     async verifyOtp(req, res) {
         const { otp, hash, phone } = req.body;

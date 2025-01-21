@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './App.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './pages/Home/Home';

@@ -110,16 +110,6 @@ voice-chat-room/
 
 ---
 
-## Roadmap
-
-### Upcoming Features
-- **Voice Filters**: Add fun filters to voice communication.
-- **Direct Messaging**: Private chats within rooms.
-- **Moderation Tools**: For room admins to manage participants effectively.
-- **Screen Sharing**: Share screens for presentations or demonstrations.
-- **Theming**: Light and dark mode for better accessibility.
-
----
 
 ## Contributing
 
